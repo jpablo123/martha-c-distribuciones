@@ -5,6 +5,7 @@ import { useCarrito } from "@/context/CarritoContext";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function ProductoCard({ producto }: { producto: Producto }) {
   const { agregarProducto } = useCarrito();
@@ -36,11 +37,13 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group">
-
-      {/* ── Zona imagen (clickeable) ── */}
+    <motion.div
+      className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm flex flex-col group"
+      whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(45,90,61,0.12)" }}
+      transition={{ type: "spring", stiffness: 120, damping: 18 }}
+    >
+      {/* ── Zona imagen ── */}
       <Link href={`/catalogo/${producto.id}`} className="relative bg-white overflow-hidden block aspect-square">
-
         {tieneImagenes ? (
           <Image
             src={imagenes[imgIndex]}
@@ -58,26 +61,21 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
           </div>
         )}
 
-        {/* Badge destacado */}
         {producto.destacado && (
           <span className="absolute top-3 left-3 bg-[var(--color-accent)] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-sm tracking-wide">
             Destacado
           </span>
         )}
 
-        {/* Badge contenido */}
         {producto.contenido && (
           <span className="absolute top-3 right-3 bg-white text-[var(--color-primary)] text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-sm border border-[var(--color-border)]">
             {producto.contenido}
           </span>
         )}
-
       </Link>
 
       {/* ── Info ── */}
       <div className="flex flex-col flex-1 p-4 gap-3">
-
-        {/* Categoría + Marca */}
         <div className="flex items-center justify-between">
           <span className="text-[11px] font-medium text-[var(--color-secondary)] uppercase tracking-wider">
             {producto.categoria}
@@ -89,17 +87,14 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
           )}
         </div>
 
-        {/* Nombre */}
         <h3 className="font-bold text-[var(--color-text)] text-base leading-snug line-clamp-2">
           {producto.nombre}
         </h3>
 
-        {/* Descripción */}
         <p className="text-[var(--color-text-light)] text-sm leading-relaxed line-clamp-2 flex-1">
           {producto.descripcion}
         </p>
 
-        {/* Precio + Botón */}
         <div className="flex items-center justify-between pt-2 border-t border-[var(--color-border)]">
           <div>
             <p className="text-[11px] text-[var(--color-text-light)]">Envío gratis</p>
@@ -107,18 +102,21 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
               {formatearPrecio(producto.precio)}
             </p>
           </div>
-          <button
+          <motion.button
             onClick={handleAgregar}
-            className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer min-w-[100px] ${
+            className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-300 cursor-pointer min-w-[100px] ${
               agregado
-                ? "bg-green-500 text-white scale-95"
-                : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] hover:scale-105"
+                ? "bg-green-500 text-white"
+                : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]"
             }`}
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.93 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             {agregado ? "¡Agregado!" : "Agregar"}
-          </button>
+          </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

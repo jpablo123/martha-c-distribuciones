@@ -3,6 +3,8 @@
 import Link from "next/link";
 import ProductoCard from "@/components/ProductoCard";
 import { productos, categorias } from "@/data/productos";
+import { motion } from "framer-motion";
+import { fadeUp, stagger, scaleIn, heroSlide, fadeIn } from "@/lib/animations";
 
 const beneficios = [
   {
@@ -49,27 +51,40 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section className="relative overflow-hidden flex items-center bg-white border-b border-[var(--color-border)]">
-        {/* Contenido */}
-        <div className="relative w-full max-w-4xl mx-auto px-6 py-20 md:py-32 text-center">
+        <motion.div
+          className="relative w-full max-w-4xl mx-auto px-6 py-20 md:py-32 text-center"
+          variants={stagger(0.12)}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 bg-[var(--color-primary)]/8 text-[var(--color-primary)] text-sm font-semibold px-4 py-2 rounded-full mb-8 border border-[var(--color-primary)]/15">
+          <motion.span
+            variants={scaleIn}
+            className="inline-flex items-center gap-2 bg-[var(--color-primary)]/8 text-[var(--color-primary)] text-sm font-semibold px-4 py-2 rounded-full mb-8 border border-[var(--color-primary)]/15"
+          >
             <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
             Envío gratis a toda Colombia
-          </span>
+          </motion.span>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-[var(--color-text)]">
+          <motion.h1
+            variants={heroSlide}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-[var(--color-text)]"
+          >
             Tu bienestar comienza<br className="hidden sm:block" /> con lo{" "}
             <span className="text-[var(--color-primary)]">natural</span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-lg md:text-xl text-[var(--color-text-light)] mb-4 leading-relaxed max-w-2xl mx-auto">
+          <motion.p
+            variants={fadeUp}
+            className="text-lg md:text-xl text-[var(--color-text-light)] mb-4 leading-relaxed max-w-2xl mx-auto"
+          >
             Suplementos naturales, colágeno y vitaminas de la más alta calidad.
-          </p>
+          </motion.p>
 
           {/* Prueba social */}
-          <div className="flex items-center justify-center gap-2 mb-10">
+          <motion.div variants={fadeUp} className="flex items-center justify-center gap-2 mb-10">
             <div className="flex -space-x-2">
               {["bg-amber-400","bg-emerald-400","bg-sky-400","bg-rose-400"].map((c,i) => (
                 <div key={i} className={`w-8 h-8 rounded-full border-2 border-white ${c} flex items-center justify-center text-white text-xs font-bold`}>
@@ -80,111 +95,143 @@ export default function HomePage() {
             <p className="text-sm text-[var(--color-text-light)]">
               <span className="font-bold text-[var(--color-text)]">+200 clientes</span> satisfechos en Colombia
             </p>
-          </div>
+          </motion.div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/catalogo"
-              className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-md hover:shadow-lg hover:scale-105"
-            >
-              Ver Catálogo
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-            <a
-              href="https://wa.me/573218804374?text=Hola%2C%20quiero%20información%20sobre%20sus%20productos"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-bold px-8 py-4 rounded-xl transition-all duration-300 text-lg hover:bg-[var(--color-primary)]/5 hover:scale-105"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-green-500">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-              </svg>
-              Escríbenos por WhatsApp
-            </a>
-          </div>
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/catalogo"
+                className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-bold px-8 py-4 rounded-xl transition-colors duration-300 text-lg shadow-md"
+              >
+                Ver Catálogo
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <a
+                href="https://wa.me/573218804374?text=Hola%2C%20quiero%20información%20sobre%20sus%20productos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-bold px-8 py-4 rounded-xl transition-colors duration-300 text-lg hover:bg-[var(--color-primary)]/5"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-green-500">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                </svg>
+                Escríbenos por WhatsApp
+              </a>
+            </motion.div>
+          </motion.div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-12 text-sm text-[var(--color-text-light)]">
-            <span className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
-              </svg>
-              Registro INVIMA
-            </span>
-            <span className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
-              </svg>
-              Pago por Nequi
-            </span>
-            <span className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
-              </svg>
-              Envío gratis
-            </span>
-          </div>
-        </div>
+          <motion.div variants={fadeIn} className="flex flex-wrap items-center justify-center gap-6 mt-12 text-sm text-[var(--color-text-light)]">
+            {["Registro INVIMA", "Pago por Nequi", "Envío gratis"].map((t) => (
+              <span key={t} className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
+                </svg>
+                {t}
+              </span>
+            ))}
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* Beneficios */}
+      {/* ── Beneficios ── */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={stagger(0.1)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {beneficios.map((b) => (
-              <div key={b.titulo} className="text-center p-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-[var(--color-primary)] mb-4">
+              <motion.div
+                key={b.titulo}
+                variants={fadeUp}
+                className="text-center p-6"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-[var(--color-primary)] mb-4"
+                >
                   {b.icono}
-                </div>
-                <h3 className="font-bold text-lg mb-2">
-                  {b.titulo}
-                </h3>
+                </motion.div>
+                <h3 className="font-bold text-lg mb-2">{b.titulo}</h3>
                 <p className="text-[var(--color-text-light)] text-sm">{b.descripcion}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Categorías */}
+      {/* ── Categorías ── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
               Nuestras Categorías
             </h2>
             <p className="text-[var(--color-text-light)] max-w-2xl mx-auto">
               Encuentra el suplemento ideal para ti entre nuestras categorías especializadas.
             </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+            variants={stagger(0.08)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {categoriasUnicas.map((cat) => (
-              <Link
+              <motion.div
                 key={cat}
-                href={`/catalogo?categoria=${encodeURIComponent(cat)}`}
-                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 border border-[var(--color-border)] hover:border-[var(--color-primary)] group"
+                variants={fadeUp}
+                whileHover={{ y: -4, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
               >
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-green-50 group-hover:bg-[var(--color-primary)] transition-colors flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
-                  {cat}
-                </h3>
-              </Link>
+                <Link
+                  href={`/catalogo?categoria=${encodeURIComponent(cat)}`}
+                  className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300 border border-[var(--color-border)] hover:border-[var(--color-primary)] group flex flex-col items-center"
+                >
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-green-50 group-hover:bg-[var(--color-primary)] transition-colors flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
+                    {cat}
+                  </h3>
+                </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Productos Destacados */}
+      {/* ── Productos Destacados ── */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-12">
+          <motion.div
+            className="flex items-center justify-between mb-12"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)]">
                 Productos Destacados
@@ -202,12 +249,22 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
               </svg>
             </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={stagger(0.1)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {productosDestacados.map((producto) => (
-              <ProductoCard key={producto.id} producto={producto} />
+              <motion.div key={producto.id} variants={fadeUp}>
+                <ProductoCard producto={producto} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
+
           <div className="text-center mt-8 md:hidden">
             <Link
               href="/catalogo"
@@ -219,8 +276,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-16 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white">
+      {/* ── CTA Final ── */}
+      <motion.section
+        className="py-16 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             ¿Necesitas asesoría personalizada?
@@ -228,19 +291,22 @@ export default function HomePage() {
           <p className="text-green-100 text-lg mb-8">
             Escríbenos por WhatsApp y te ayudamos a encontrar los productos ideales para tu bienestar.
           </p>
-          <a
+          <motion.a
             href="https://wa.me/573218804374?text=Hola%2C%20quiero%20asesor%C3%ADa%20sobre%20sus%20productos"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white text-[var(--color-primary)] font-bold px-8 py-4 rounded-xl hover:bg-green-50 transition-colors text-lg shadow-lg"
+            className="inline-flex items-center gap-3 bg-white text-[var(--color-primary)] font-bold px-8 py-4 rounded-xl transition-colors text-lg shadow-lg hover:bg-green-50"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 200, damping: 18 }}
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
             </svg>
             Chatea con nosotros
-          </a>
+          </motion.a>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 }
