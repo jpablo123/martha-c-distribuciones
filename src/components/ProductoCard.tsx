@@ -102,7 +102,7 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
         {/* Precio + Botón */}
         <div className="flex items-center justify-between pt-2 border-t border-[var(--color-border)]">
           <div>
-            <p className="text-[11px] text-[var(--color-text-light)]">Precio</p>
+            <p className="text-[11px] text-[var(--color-text-light)]">Precio · envío incluido</p>
             <p className="text-xl font-bold text-[var(--color-primary)]">
               {formatearPrecio(producto.precio)}
             </p>
