@@ -234,9 +234,9 @@ export const productos: Producto[] = [
   },
   {
     id: "extractos-flores",
-    nombre: "Extractos de Flores Naturales",
+    nombre: "Barras de Caléndula - Higiene Íntima Natural",
     descripcion:
-      "Extracto floral de alta concentración con propiedades antioxidantes, relajantes y reguladoras del organismo. Ideal para el bienestar emocional y el equilibrio natural del cuerpo.",
+      "Barras de caléndula con aceites naturales formuladas para hidratar profundamente y restaurar el pH natural de la zona íntima femenina. Ingredientes 100% naturales que cuidan, protegen y equilibran la flora vaginal de forma suave y efectiva.",
     precio: 72000,
     categoria: "Naturales",
     imagen: "/productos/extractos-flores/extractos-flores-1.png",
