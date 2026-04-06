@@ -25,8 +25,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Martha C Distribuciones"
-              width={50}
-              height={50}
+              width={80}
+              height={80}
               className="rounded"
               loading="eager"
             />
