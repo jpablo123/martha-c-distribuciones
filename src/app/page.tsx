@@ -50,28 +50,21 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative text-white overflow-hidden flex items-center bg-[var(--color-primary)]">
-        {/* Patrón decorativo de fondo */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white translate-x-1/3 -translate-y-1/3" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-white -translate-x-1/3 translate-y-1/3" />
-          <div className="absolute top-1/2 left-1/2 w-48 h-48 rounded-full bg-[var(--color-accent)] -translate-x-1/2 -translate-y-1/2" />
-        </div>
-
+      <section className="relative overflow-hidden flex items-center bg-white border-b border-[var(--color-border)]">
         {/* Contenido */}
         <div className="relative w-full max-w-4xl mx-auto px-6 py-20 md:py-32 text-center">
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-sm font-semibold px-4 py-2 rounded-full mb-8 border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-[var(--color-accent-light)] animate-pulse" />
+          <span className="inline-flex items-center gap-2 bg-[var(--color-primary)]/8 text-[var(--color-primary)] text-sm font-semibold px-4 py-2 rounded-full mb-8 border border-[var(--color-primary)]/15">
+            <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
             Envío gratis a toda Colombia
           </span>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-[var(--color-text)]">
             Tu bienestar comienza<br className="hidden sm:block" /> con lo{" "}
-            <span className="text-[var(--color-accent-light)]">natural</span>
+            <span className="text-[var(--color-primary)]">natural</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-green-100 mb-4 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[var(--color-text-light)] mb-4 leading-relaxed max-w-2xl mx-auto">
             Suplementos naturales, colágeno y vitaminas de la más alta calidad.
           </p>
 
@@ -79,13 +72,13 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-2 mb-10">
             <div className="flex -space-x-2">
               {["bg-amber-400","bg-emerald-400","bg-sky-400","bg-rose-400"].map((c,i) => (
-                <div key={i} className={`w-8 h-8 rounded-full border-2 border-[var(--color-primary)] ${c} flex items-center justify-center text-white text-xs font-bold`}>
+                <div key={i} className={`w-8 h-8 rounded-full border-2 border-white ${c} flex items-center justify-center text-white text-xs font-bold`}>
                   {["A","M","C","L"][i]}
                 </div>
               ))}
             </div>
-            <p className="text-sm text-green-100">
-              <span className="font-bold text-white">+200 clientes</span> satisfechos en Colombia
+            <p className="text-sm text-[var(--color-text-light)]">
+              <span className="font-bold text-[var(--color-text)]">+200 clientes</span> satisfechos en Colombia
             </p>
           </div>
 
@@ -93,7 +86,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/catalogo"
-              className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-md hover:shadow-lg hover:scale-105"
             >
               Ver Catálogo
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
@@ -104,7 +97,7 @@ export default function HomePage() {
               href="https://wa.me/573218804374?text=Hola%2C%20quiero%20información%20sobre%20sus%20productos"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-[var(--color-primary)] font-bold px-8 py-4 rounded-xl transition-all duration-300 text-lg hover:bg-green-50 hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-bold px-8 py-4 rounded-xl transition-all duration-300 text-lg hover:bg-[var(--color-primary)]/5 hover:scale-105"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-green-500">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -114,21 +107,21 @@ export default function HomePage() {
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-12 text-sm text-green-200">
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-12 text-sm text-[var(--color-text-light)]">
             <span className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-accent-light)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
                 <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
               </svg>
               Registro INVIMA
             </span>
             <span className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-accent-light)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
                 <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
               </svg>
               Pago por Nequi
             </span>
             <span className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-accent-light)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
                 <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
               </svg>
               Envío gratis
