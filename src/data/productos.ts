@@ -7,6 +7,7 @@ export interface Producto {
   imagen: string;
   imagenes?: string[];
   destacado?: boolean;
+  activo: boolean;
   contenido?: string;
   marca?: string;
 }
@@ -36,6 +37,7 @@ export const productos: Producto[] = [
     ],
     contenido: "800g",
     marca: "Vitalnip Marketing S.A.S.",
+    activo: true,
     destacado: true,
   },
   {
@@ -49,6 +51,7 @@ export const productos: Producto[] = [
     imagenes: [
       "/productos/aliflus-vita-c/aliflus-vita-c-1.png",
     ],
+    activo: true,
     destacado: false,
   },
   {
@@ -63,6 +66,7 @@ export const productos: Producto[] = [
       "/productos/multigrw/multigrw-1.png",
     ],
     contenido: "400g",
+    activo: true,
     destacado: false,
   },
   {
@@ -77,6 +81,7 @@ export const productos: Producto[] = [
       "/productos/inmufactor/inmufactor-1.png",
     ],
     contenido: "800g",
+    activo: true,
     destacado: false,
   },
   {
@@ -90,6 +95,7 @@ export const productos: Producto[] = [
     imagenes: [
       "/productos/colagyn-10/colagyn-10-1.png",
     ],
+    activo: true,
     destacado: true,
   },
   {
@@ -104,6 +110,7 @@ export const productos: Producto[] = [
       "/productos/sales-de-magnesio/sales-de-magnesio-1.png",
     ],
     marca: "IQ Intelligent Quality",
+    activo: true,
     destacado: true,
   },
   {
@@ -119,6 +126,7 @@ export const productos: Producto[] = [
       "/productos/aceite-para-masajes/aceite-para-masajes-2.png",
     ],
     contenido: "60 ml",
+    activo: true,
     destacado: false,
   },
   {
@@ -132,6 +140,7 @@ export const productos: Producto[] = [
     imagenes: [
       "/productos/champu-capilsan/champu-capilsan-1.png",
     ],
+    activo: true,
     destacado: false,
   },
   {
@@ -145,6 +154,7 @@ export const productos: Producto[] = [
     imagenes: [
       "/productos/extractos-flores/extractos-flores-1.png",
     ],
+    activo: true,
     destacado: false,
   },
 ];

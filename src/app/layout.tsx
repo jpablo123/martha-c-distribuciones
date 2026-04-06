@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Martha C Distribuciones | Suplementos Naturales y Bienestar",
     description:
       "Tu tienda de confianza en suplementos naturales, colágeno y productos para la salud. Envíos a toda Colombia.",
-    images: [{ url: "/logo.png", width: 500, height: 500, alt: "Martha C Distribuciones Logo" }],
+    images: [{ url: "/logo.png", width: 1200, height: 630, alt: "Martha C Distribuciones" }],
   },
   robots: {
     index: true,

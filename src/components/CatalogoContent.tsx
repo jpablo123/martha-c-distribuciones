@@ -14,7 +14,7 @@ export default function CatalogoContent() {
   const [ordenar, setOrdenar] = useState("relevancia");
 
   const productosFiltrados = useMemo(() => {
-    let resultado = productos;
+    let resultado = productos.filter((p) => p.activo);
 
     if (categoriaActiva !== "Todos") {
       resultado = resultado.filter((p) => p.categoria === categoriaActiva);

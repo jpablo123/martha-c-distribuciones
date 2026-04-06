@@ -44,7 +44,7 @@ const beneficios = [
 ];
 
 export default function HomePage() {
-  const productosDestacados = productos.filter((p) => p.destacado);
+  const productosDestacados = productos.filter((p) => p.activo && p.destacado);
   const categoriasUnicas = categorias.filter((c) => c !== "Todos");
 
   return (
