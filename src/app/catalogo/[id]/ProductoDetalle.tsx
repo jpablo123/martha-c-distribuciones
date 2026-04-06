@@ -130,7 +130,7 @@ export default function ProductoDetalle({ producto }: { producto: Producto }) {
             <span className="text-3xl font-bold text-[var(--color-primary)]">
               {formatearPrecio(producto.precio)}
             </span>
-            <span className="text-sm text-[var(--color-text-light)]">COP · envío incluido</span>
+            <span className="text-sm text-[var(--color-text-light)]">COP · envío gratis</span>
           </div>
 
           <p className="text-[var(--color-text-light)] leading-relaxed">
