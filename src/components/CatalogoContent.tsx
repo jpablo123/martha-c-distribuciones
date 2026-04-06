@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductoCard from "@/components/ProductoCard";
 import { productos, categorias } from "@/data/productos";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CatalogoContent() {
   const searchParams = useSearchParams();
@@ -49,16 +50,27 @@ export default function CatalogoContent() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-      <div className="mb-8">
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 80, damping: 18 }}
+      >
         <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-text)]">
           Nuestro Catálogo
         </h1>
         <p className="text-[var(--color-text-light)] mt-2">
           Encuentra los mejores suplementos naturales para tu bienestar.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="mb-8 space-y-4">
+      <motion.div
+        className="mb-8 space-y-4"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 80, damping: 18, delay: 0.1 }}
+      >
+        {/* Buscador */}
         <div className="relative max-w-md">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-light)]">
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -72,20 +84,23 @@ export default function CatalogoContent() {
           />
         </div>
 
+        {/* Filtros */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="flex flex-wrap gap-2">
             {categorias.map((cat) => (
-              <button
+              <motion.button
                 key={cat}
                 onClick={() => setCategoriaActiva(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 cursor-pointer ${
                   categoriaActiva === cat
                     ? "bg-[var(--color-primary)] text-white shadow-md"
                     : "bg-white text-[var(--color-text)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                 }`}
               >
                 {cat}
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -100,31 +115,56 @@ export default function CatalogoContent() {
             <option value="nombre">Nombre A-Z</option>
           </select>
         </div>
-      </div>
+      </motion.div>
 
       <p className="text-sm text-[var(--color-text-light)] mb-4">
         {productosFiltrados.length} producto{productosFiltrados.length !== 1 ? "s" : ""} encontrado{productosFiltrados.length !== 1 ? "s" : ""}
       </p>
 
       {productosFiltrados.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {productosFiltrados.map((producto) => (
-            <ProductoCard key={producto.id} producto={producto} />
-          ))}
-        </div>
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          layout
+        >
+          <AnimatePresence mode="popLayout">
+            {productosFiltrados.map((producto, i) => (
+              <motion.div
+                key={producto.id}
+                layout
+                initial={{ opacity: 0, scale: 0.88, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.88, y: -10 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 22,
+                  delay: i * 0.04,
+                }}
+              >
+                <ProductoCard producto={producto} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       ) : (
-        <div className="text-center py-16">
+        <motion.div
+          className="text-center py-16"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 150, damping: 20 }}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-16 h-16 mx-auto text-[var(--color-text-light)] opacity-40 mb-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
           <p className="text-[var(--color-text-light)] text-lg">No se encontraron productos.</p>
-          <button
+          <motion.button
             onClick={() => { setBusqueda(""); setCategoriaActiva("Todos"); }}
             className="mt-4 text-[var(--color-primary)] hover:underline font-medium cursor-pointer"
+            whileTap={{ scale: 0.95 }}
           >
             Limpiar filtros
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       )}
     </div>
   );

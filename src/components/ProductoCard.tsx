@@ -40,7 +40,8 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
     <motion.div
       className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm flex flex-col group"
       whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(45,90,61,0.12)" }}
-      transition={{ type: "spring", stiffness: 120, damping: 18 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 250, damping: 22 }}
     >
       {/* ── Zona imagen ── */}
       <Link href={`/catalogo/${producto.id}`} className="relative bg-white overflow-hidden block aspect-square">
