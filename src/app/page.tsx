@@ -52,7 +52,12 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden flex items-center bg-white border-b border-[var(--color-border)]">
+      <section
+        className="relative overflow-hidden flex items-center border-b border-[var(--color-border)]"
+        style={{
+          background: "radial-gradient(ellipse at 60% 40%, #ffffff 0%, #f0f8f3 45%, #e8f4ed 100%)",
+        }}
+      >
         <motion.div
           className="relative w-full max-w-4xl mx-auto px-6 py-20 md:py-32 text-center"
           variants={stagger(0.12)}
