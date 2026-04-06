@@ -57,15 +57,15 @@ export default function HomePage() {
           src="/hero/hero.png"
           alt="Suplementos naturales Martha C Distribuciones"
           fill
-          className="object-cover object-center"
+          className="object-cover object-top md:object-center"
           priority
         />
-        {/* Overlay verde (más oscuro a la derecha donde va el texto) */}
-        <div className="absolute inset-0 bg-gradient-to-l from-[var(--color-primary)]/90 via-[var(--color-primary)]/75 to-[var(--color-primary)]/30" />
+        {/* Overlay: en mobile cubre todo, en desktop solo desde la derecha */}
+        <div className="absolute inset-0 bg-[var(--color-primary)]/70 md:bg-gradient-to-l md:from-[var(--color-primary)]/90 md:via-[var(--color-primary)]/75 md:to-[var(--color-primary)]/30" />
 
         {/* Contenido */}
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 flex justify-end">
-          <div className="max-w-2xl">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 flex justify-center md:justify-end">
+          <div className="max-w-2xl text-center md:text-left">
             <span className="inline-block bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">
               Salud y Bienestar Natural
             </span>
@@ -76,7 +76,7 @@ export default function HomePage() {
             <p className="text-lg md:text-xl text-green-100 mb-8 leading-relaxed">
               Descubre nuestra línea de suplementos naturales, colágeno y vitaminas de la más alta calidad. Envíos a toda Colombia.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
                 href="/catalogo"
                 className="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
