@@ -1,8 +1,8 @@
 import type { Variants } from "framer-motion";
 
 // Spring suave — sensación orgánica para una marca de salud
-export const spring = { type: "spring", stiffness: 80, damping: 18 };
-export const springFast = { type: "spring", stiffness: 120, damping: 20 };
+export const spring = { type: "spring" as const, stiffness: 80, damping: 18 };
+export const springFast = { type: "spring" as const, stiffness: 120, damping: 20 };
 
 // Fade + slide desde abajo — base de todas las revelaciones
 export const fadeUp: Variants = {
