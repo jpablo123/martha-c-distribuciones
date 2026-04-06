@@ -144,6 +144,95 @@ export const productos: Producto[] = [
     destacado: false,
   },
   {
+    id: "bidens-pilosa",
+    nombre: "Bidens Pilosa - Jarabe Natural 360ml",
+    descripcion:
+      "Jarabe a base de Bidens Pilosa (amor seco), planta medicinal utilizada como tratamiento natural para combatir la gastritis crónica y la bacteria Helicobacter Pylori. Sus propiedades antibacterianas, antiinflamatorias e inmunoestimuladoras ayudan a reducir la inflamación gástrica, aliviar el ardor y proteger la mucosa estomacal. También apoya la salud digestiva, respiratoria y fortalece las defensas del organismo. Fórmula natural de alta concentración.",
+    precio: 62000,
+    categoria: "Naturales",
+    imagen: "/productos/bidens-pilosa/bidens-pilosa-1.png",
+    imagenes: [
+      "/productos/bidens-pilosa/bidens-pilosa-1.png",
+    ],
+    contenido: "360ml",
+    marca: "Pilobide",
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "oximax",
+    nombre: "Oximax con Clorofila - Antioxidante Natural Sabor Menta",
+    descripcion:
+      "Suplemento líquido con clorofila natural sabor menta. La clorofila actúa como potente antioxidante: oxigena la sangre, favorece la desintoxicación del organismo, alcaliniza el pH corporal y contribuye a la eliminación de toxinas. Ideal para mejorar la vitalidad, la digestión y el bienestar general.",
+    precio: 49600,
+    categoria: "Naturales",
+    imagen: "/productos/oximax/oximax-1.png",
+    imagenes: [
+      "/productos/oximax/oximax-1.png",
+    ],
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "danolenty",
+    nombre: "Danolenty - Bebida para Fortalecer el Sistema Inmune 960ml",
+    descripcion:
+      "Bebida natural a base de Sirope de Yacón, Colágeno, Hongo Shiitake (Lentinula Edodes), Betaglucanos de Avena y Lentinán. Enriquecida con vitaminas B1 y B2, Magnesio y Zinc. Potente inmunoestimulante que refuerza las defensas del organismo, combate el cansancio y protege frente a infecciones. Sabor Champiñón. 8 porciones por envase.",
+    precio: 107000,
+    categoria: "Suplementos",
+    imagen: "/productos/danolenty/danolenty-1.png",
+    imagenes: [
+      "/productos/danolenty/danolenty-1.png",
+    ],
+    contenido: "960ml",
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "fibruela",
+    nombre: "Fibruela - Fibra Natural con Linaza y Fibra de Manzana 300g",
+    descripcion:
+      "Alimento en polvo a base de pulpa de fruta con malta, fibra de manzana, psyllium y linaza molida. Sabor artificial a ciruela. Fortificado con vitaminas y minerales. Favorece el tránsito intestinal, mejora la digestión y contribuye al bienestar digestivo diario. Fácil de disolver en agua o jugos.",
+    precio: 62500,
+    categoria: "Naturales",
+    imagen: "/productos/fibruela/fibruela-1.png",
+    imagenes: [
+      "/productos/fibruela/fibruela-1.png",
+    ],
+    contenido: "300g",
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "actipen",
+    nombre: "Actipen - Termogénico Líquido de Alta Concentración",
+    descripcion:
+      "Suplemento termogénico líquido de alta concentración al 8%. Formulado para potenciar el metabolismo, aumentar la energía y favorecer la quema de grasa de forma natural. Ideal para personas activas que buscan optimizar su rendimiento y composición corporal. Fácil de consumir y de rápida absorción.",
+    precio: 59000,
+    categoria: "Deportes",
+    imagen: "/productos/actipen/actipen-1.png",
+    imagenes: [
+      "/productos/actipen/actipen-1.png",
+    ],
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "colagyn-500ml-uva",
+    nombre: "Colagyn 10 Líquido - Colágeno Hidrolizado Sabor Uva 500ml",
+    descripcion:
+      "Colágeno hidrolizado en formato líquido con vitaminas E, C y D. Sabor uva. Mezcla con frutas naturales (uva, mora y fresa) para una absorción óptima. Favorece la firmeza de la piel, la salud articular y el fortalecimiento de cabello y uñas. 17 porciones por envase.",
+    precio: 49600,
+    categoria: "Colágeno",
+    imagen: "/productos/colagyn-500ml-uva/colagyn-500ml-uva-1.png",
+    imagenes: [
+      "/productos/colagyn-500ml-uva/colagyn-500ml-uva-1.png",
+    ],
+    contenido: "500ml",
+    activo: true,
+    destacado: false,
+  },
+  {
     id: "extractos-flores",
     nombre: "Extractos de Flores Naturales",
     descripcion:
