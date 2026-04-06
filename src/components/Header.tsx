@@ -28,6 +28,7 @@ export default function Header() {
               width={50}
               height={50}
               className="rounded"
+              loading="eager"
             />
             <div className="hidden sm:block">
               <p className="text-lg font-bold text-[var(--color-primary)]">

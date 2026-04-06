@@ -14,10 +14,6 @@
   --color-border: #E5E1D8;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-poppins), system-ui, sans-serif;
   background-color: var(--color-bg);

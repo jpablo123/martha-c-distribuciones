@@ -79,7 +79,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es" className={poppins.variable}>
+    <html lang="es" className={poppins.variable} data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/logo.png" />
         <script
