@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://marthac-distribuciones.com"),
+  metadataBase: new URL("https://marthacdistribuciones.com"),
   title: {
     default: "Martha C Distribuciones | Suplementos Naturales y Bienestar en Colombia",
     template: "%s | Martha C Distribuciones",
@@ -68,7 +68,7 @@ export default function RootLayout({
     "@type": "Store",
     name: "Martha C Distribuciones",
     description: "Tienda de suplementos naturales, colágeno, vitaminas y productos para la salud y el bienestar en Colombia.",
-    url: "https://marthac-distribuciones.com",
+    url: "https://marthacdistribuciones.com",
     telephone: "+573218804374",
     address: {
       "@type": "PostalAddress",
