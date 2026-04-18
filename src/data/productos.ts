@@ -52,7 +52,7 @@ export const productos: Producto[] = [
       "/productos/aliflus-vita-c/aliflus-vita-c-1.png",
     ],
     activo: true,
-    destacado: false,
+    destacado: true,
   },
   {
     id: "multigrw",
@@ -170,7 +170,7 @@ export const productos: Producto[] = [
     imagenes: [
       "/productos/oximax/oximax-1.png",
     ],
-    activo: true,
+    activo: false,
     destacado: false,
   },
   {
@@ -186,7 +186,7 @@ export const productos: Producto[] = [
     ],
     contenido: "960ml",
     activo: true,
-    destacado: false,
+    destacado: true,
   },
   {
     id: "fibruela",
@@ -242,6 +242,64 @@ export const productos: Producto[] = [
     imagen: "/productos/extractos-flores/extractos-flores-1.png",
     imagenes: [
       "/productos/extractos-flores/extractos-flores-1.png",
+    ],
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "omega3-nutriplus",
+    nombre: "Omega 3 Nutriplus - Ácidos Grasos Esenciales",
+    descripcion:
+      "Suplemento de Omega 3 con ácidos grasos esenciales EPA y DHA de alta pureza. Favorece la salud cardiovascular, mejora la función cerebral y actúa como antiinflamatorio natural. Contribuye a mantener niveles saludables de triglicéridos, apoya la salud visual y fortalece el sistema inmunológico. Ideal para el bienestar integral diario.",
+    precio: 89000,
+    categoria: "Suplementos",
+    imagen: "/productos/omega3-nutriplus/omega3-nutriplus-1.png",
+    imagenes: [
+      "/productos/omega3-nutriplus/omega3-nutriplus-1.png",
+    ],
+    marca: "Nutriplus",
+    activo: true,
+    destacado: true,
+  },
+  {
+    id: "nutriplus-ashwagandha",
+    nombre: "Ashwagandha Nutriplus - Adaptógeno Natural",
+    descripcion:
+      "Extracto de Ashwagandha (Withania somnifera) de alta concentración. Planta adaptógena usada en la medicina ayurvédica por miles de años. Reduce el estrés y la ansiedad, mejora los niveles de energía, apoya el rendimiento físico y mental, y contribuye al equilibrio hormonal. Ideal para personas con ritmo de vida exigente.",
+    precio: 98000,
+    categoria: "Naturales",
+    imagen: "/productos/nutriplus-ashwagandha/nutriplus-ashwagandha-1.png",
+    imagenes: [
+      "/productos/nutriplus-ashwagandha/nutriplus-ashwagandha-1.png",
+    ],
+    marca: "Nutriplus",
+    activo: true,
+    destacado: true,
+  },
+  {
+    id: "nad-resveratrol",
+    nombre: "NAD+ Resveratrol - Antienvejecimiento Celular",
+    descripcion:
+      "Fórmula sinérgica de NAD+ (Nicotinamida Adenina Dinucleótido) y Resveratrol, dos de los compuestos más estudiados en longevidad celular. El NAD+ reactiva las enzimas sirtuinas para reparar el ADN y producir energía celular. El Resveratrol potencia su efecto antioxidante y antiinflamatorio. Ideal para quienes buscan vitalidad, claridad mental y un envejecimiento saludable.",
+    precio: 98000,
+    categoria: "Bienestar",
+    imagen: "/productos/nad-+-resveratrol/resveratrol-1.png",
+    imagenes: [
+      "/productos/nad-+-resveratrol/resveratrol-1.png",
+    ],
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "vitamina-e-selenio",
+    nombre: "Vitamina E + Selenio - Antioxidante Integral",
+    descripcion:
+      "Combinación antioxidante de Vitamina E y Selenio para una protección celular completa. La Vitamina E protege las membranas celulares del daño oxidativo, mejora la salud de la piel y fortalece el sistema inmune. El Selenio potencia su acción, apoya la función tiroidea, la fertilidad y contribuye a la producción de glutatión, el antioxidante maestro del organismo.",
+    precio: 89000,
+    categoria: "Suplementos",
+    imagen: "/productos/vitamina-e-selenio/vitamina-e-selenio-1.png",
+    imagenes: [
+      "/productos/vitamina-e-selenio/vitamina-e-selenio-1.png",
     ],
     activo: true,
     destacado: false,
