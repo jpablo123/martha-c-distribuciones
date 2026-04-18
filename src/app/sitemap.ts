@@ -4,7 +4,7 @@ import { productos } from "@/data/productos";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://marthacdistribuciones.com";
+  const baseUrl = "https://www.marthacdistribuciones.com";
 
   const productoUrls: MetadataRoute.Sitemap = productos.map((p) => ({
     url: `${baseUrl}/catalogo/${p.id}`,

@@ -73,3 +73,10 @@ Stored in `public/productos/[product-slug]/`. Each product has a primary `imagen
 ## Locale
 
 Language: `es` (Colombian Spanish). Prices in COP. `lang="es"` set in root layout.
+
+## Animation strategy
+
+- **Hero section** (`src/components/home/HeroSection.tsx`) — Framer Motion (client component). Justified: branded entrance animations on first render.
+- **Scroll sections** (`src/components/home/AnimateOnScroll.tsx`) — Lightweight IntersectionObserver + CSS `@keyframes fadeUpIn`. No Framer Motion needed for below-fold animations.
+- **WhatsAppFloat** (`src/components/WhatsAppFloat.tsx`) — Pure CSS `whatsappEntry` keyframe. No client JS needed.
+- Rule: avoid `"use client"` + Framer Motion for sections that are below the fold or static.

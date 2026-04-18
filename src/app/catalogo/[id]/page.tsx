@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { productos } from "@/data/productos";
 import ProductoDetalle from "./ProductoDetalle";
 
-const baseUrl = "https://marthacdistribuciones.com";
+const baseUrl = "https://www.marthacdistribuciones.com";
 
 export function generateStaticParams() {
   return productos.map((p) => ({ id: p.id }));

@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://marthacdistribuciones.com"),
+  metadataBase: new URL("https://www.marthacdistribuciones.com"),
   title: {
     default: "Martha C Distribuciones | Suplementos Naturales y Bienestar en Colombia",
     template: "%s | Martha C Distribuciones",
@@ -45,6 +45,15 @@ export const metadata: Metadata = {
       "Tu tienda de confianza en suplementos naturales, colágeno y productos para la salud. Envíos a toda Colombia.",
     images: [{ url: "/logo.png", width: 1200, height: 630, alt: "Martha C Distribuciones" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Martha C Distribuciones | Suplementos Naturales",
+    description: "Tu tienda de confianza en suplementos naturales, colágeno y productos para la salud. Envíos a toda Colombia.",
+    images: ["/logo.png"],
+  },
+  alternates: {
+    canonical: "https://www.marthacdistribuciones.com",
+  },
   robots: {
     index: true,
     follow: true,
@@ -68,7 +77,7 @@ export default function RootLayout({
     "@type": "Store",
     name: "Martha C Distribuciones",
     description: "Tienda de suplementos naturales, colágeno, vitaminas y productos para la salud y el bienestar en Colombia.",
-    url: "https://marthacdistribuciones.com",
+    url: "https://www.marthacdistribuciones.com",
     telephone: "+573218804374",
     address: {
       "@type": "PostalAddress",
@@ -81,6 +90,8 @@ export default function RootLayout({
   return (
     <html lang="es" className={poppins.variable} data-scroll-behavior="smooth">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/favicon/favicon-16x16.png" type="image/png" sizes="16x16" />
