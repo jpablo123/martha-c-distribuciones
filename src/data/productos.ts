@@ -37,8 +37,8 @@ export const productos: Producto[] = [
     ],
     contenido: "800g",
     marca: "Vitalnip Marketing S.A.S.",
-    activo: true,
-    destacado: true,
+    activo: false,
+    destacado: false,
   },
   {
     id: "aliflus-vita-c",
