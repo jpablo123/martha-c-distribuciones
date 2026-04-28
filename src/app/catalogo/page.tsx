@@ -3,8 +3,12 @@ import type { Metadata } from "next";
 import CatalogoContent from "@/components/CatalogoContent";
 
 export const metadata: Metadata = {
-  title: "Catálogo",
-  description: "Explora nuestro catálogo completo de suplementos naturales, colágeno, vitaminas y productos para la salud. Envíos a toda Colombia.",
+  title: "Catálogo de Suplementos Naturales | Colágeno, Vitaminas y Bienestar",
+  description:
+    "Explora colágeno hidrolizado, vitaminas, suplementos deportivos, productos naturales y de bienestar. Precios justos y envíos a toda Colombia. Martha C Distribuciones.",
+  alternates: {
+    canonical: "https://www.marthacdistribuciones.com/catalogo",
+  },
 };
 
 export default function CatalogoPage() {

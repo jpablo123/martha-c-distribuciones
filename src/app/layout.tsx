@@ -72,19 +72,65 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
+  const storeJsonLd = {
     "@context": "https://schema.org",
     "@type": "Store",
     name: "Martha C Distribuciones",
-    description: "Tienda de suplementos naturales, colágeno, vitaminas y productos para la salud y el bienestar en Colombia.",
+    description:
+      "Tienda de suplementos naturales, colágeno, vitaminas y productos para la salud y el bienestar en Colombia.",
     url: "https://www.marthacdistribuciones.com",
     telephone: "+573218804374",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+573218804374",
+      contactType: "customer service",
+      availableLanguage: "Spanish",
+      contactOption: "TollFree",
+    },
     address: {
       "@type": "PostalAddress",
       addressCountry: "CO",
+      addressLocality: "Colombia",
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "08:00",
+        closes: "13:00",
+      },
+    ],
     priceRange: "$$",
-    image: "/logo.png",
+    image: "https://www.marthacdistribuciones.com/logo.png",
+    areaServed: {
+      "@type": "Country",
+      name: "Colombia",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Suplementos Naturales y Bienestar",
+    },
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Martha C Distribuciones",
+    url: "https://www.marthacdistribuciones.com",
+    description:
+      "Tienda en línea de suplementos naturales, colágeno, vitaminas y productos de bienestar en Colombia.",
+    inLanguage: "es-CO",
+    publisher: {
+      "@type": "Organization",
+      name: "Martha C Distribuciones",
+      url: "https://www.marthacdistribuciones.com",
+    },
   };
 
   return (
@@ -99,7 +145,11 @@ export default function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(storeJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="min-h-screen flex flex-col">

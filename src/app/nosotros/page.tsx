@@ -3,8 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Nosotros",
-  description: "Conoce a Martha C Distribuciones, tu aliada en salud y bienestar natural en Colombia. Suplementos de calidad con atención personalizada.",
+  title: "Quiénes Somos | Distribuidora de Suplementos Naturales en Colombia",
+  description:
+    "Conoce Martha C Distribuciones: empresa colombiana especializada en suplementos naturales, colágeno y productos de bienestar certificados. Atención personalizada y envíos a toda Colombia.",
+  alternates: {
+    canonical: "https://www.marthacdistribuciones.com/nosotros",
+  },
 };
 
 const valores = [

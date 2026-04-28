@@ -6,12 +6,14 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.marthacdistribuciones.com";
 
-  const productoUrls: MetadataRoute.Sitemap = productos.map((p) => ({
-    url: `${baseUrl}/catalogo/${p.id}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  const productoUrls: MetadataRoute.Sitemap = productos
+    .filter((p) => p.activo)
+    .map((p) => ({
+      url: `${baseUrl}/catalogo/${p.id}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }));
 
   return [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },

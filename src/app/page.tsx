@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import ProductoCard from "@/components/ProductoCard";
 import { productos, categorias } from "@/data/productos";
 import HeroSection from "@/components/home/HeroSection";
 import AnimateOnScroll from "@/components/home/AnimateOnScroll";
+
+export const metadata: Metadata = {
+  title: "Suplementos Naturales y Productos de Bienestar en Colombia",
+  description:
+    "Compra colágeno hidrolizado, vitaminas, suplementos naturales y productos de bienestar con envío a toda Colombia. Productos certificados INVIMA. Martha C Distribuciones.",
+  alternates: {
+    canonical: "https://www.marthacdistribuciones.com",
+  },
+};
 
 const beneficios = [
   {

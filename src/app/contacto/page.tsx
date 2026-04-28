@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contacto",
-  description: "Contáctanos por WhatsApp, teléfono o visítanos. Martha C Distribuciones - Suplementos naturales en Colombia.",
+  title: "Contacto | Atención Personalizada por WhatsApp en Colombia",
+  description:
+    "Contáctanos por WhatsApp al +57 321 880 4374. Asesoría personalizada en suplementos naturales y productos de bienestar. Martha C Distribuciones, Colombia.",
+  alternates: {
+    canonical: "https://www.marthacdistribuciones.com/contacto",
+  },
 };
 
 export default function ContactoPage() {

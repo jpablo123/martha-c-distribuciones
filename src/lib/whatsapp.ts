@@ -33,40 +33,29 @@ export function generarMensajeWhatsApp(
     )
     .join("\n");
 
-  const mensaje = `🛒 *NUEVO PEDIDO - Martha C Distribuciones*
+  const mensaje = `*Nuevo pedido — Martha C Distribuciones*
 
-━━━━━━━━━━━━━━━━━━━━━
-
-📦 *PRODUCTOS:*
+*PRODUCTOS*
 ${lineasProductos}
 
-💰 *TOTAL: ${formatearPrecio(total)}*
+*TOTAL: ${formatearPrecio(total)}*
 
-━━━━━━━━━━━━━━━━━━━━━
-
-👤 *DATOS DEL CLIENTE:*
-• Nombre: ${datos.nombre}
-• Cédula: ${datos.cedula}
-• Teléfono: ${datos.telefono}
-${datos.email ? `• Email: ${datos.email}` : ""}
-
-━━━━━━━━━━━━━━━━━━━━━
-
-🚚 *DATOS DE ENVÍO:*
-• Dirección: ${datos.direccion}
-• Ciudad: ${datos.ciudad}
-• Departamento: ${datos.departamento}
-${datos.notas ? `• Notas: ${datos.notas}` : ""}
-
-━━━━━━━━━━━━━━━━━━━━━
-
-💜 *MÉTODO DE PAGO:*
-Nequi al número *321 880 4374*
-Por favor envíe el comprobante de pago aquí mismo.
-
-━━━━━━━━━━━━━━━━━━━━━
-
-¡Muchas gracias por su compra! 🌿`;
+─────────────────────
+*CLIENTE*
+Nombre: ${datos.nombre}
+Cédula: ${datos.cedula}
+Teléfono: ${datos.telefono}
+${datos.email ? `Email: ${datos.email}` : ""}
+─────────────────────
+*ENVÍO*
+Dirección: ${datos.direccion}
+Ciudad: ${datos.ciudad}
+Departamento: ${datos.departamento}
+${datos.notas ? `Notas: ${datos.notas}` : ""}
+─────────────────────
+*PAGO*
+Nequi · *321 880 4374*
+Por favor adjunte el comprobante de pago.`;
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
 }
