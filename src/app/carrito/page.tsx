@@ -214,6 +214,26 @@ export default function CarritoPage() {
             </div>
           </div>
 
+          {/* Pago Bancolombia */}
+          <div className="rounded-xl border border-[#FFD700]/40 bg-[#FFFBEA] p-4 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-[#FFCD00]">
+                <rect width="24" height="24" rx="4" fill="#FFCD00"/>
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <h3 className="font-bold text-sm text-[var(--color-text)]">Pago por transferencia Bancolombia</h3>
+            </div>
+            <div className="space-y-1 text-sm text-[var(--color-text)]">
+              <p><span className="text-[var(--color-text-light)]">Banco:</span> <span className="font-semibold">Bancolombia</span></p>
+              <p><span className="text-[var(--color-text-light)]">Tipo de cuenta:</span> <span className="font-semibold">Ahorros</span></p>
+              <p><span className="text-[var(--color-text-light)]">Número de cuenta:</span> <span className="font-mono font-semibold tracking-wide">205-709192-54</span></p>
+              <p><span className="text-[var(--color-text-light)]">Titular:</span> <span className="font-semibold">Martha Moscoso</span></p>
+            </div>
+            <p className="text-xs text-[var(--color-text-light)] mt-3">
+              Realiza la transferencia y envíanos el comprobante por WhatsApp al completar el pedido.
+            </p>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3">
             <button
               type="button"

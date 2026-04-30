@@ -38,20 +38,20 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
 
   return (
     <motion.div
-      className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm flex flex-col group"
+      className="bg-white rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm flex flex-col h-full group"
       whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(45,90,61,0.12)" }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 250, damping: 22 }}
     >
       {/* ── Zona imagen ── */}
-      <Link href={`/catalogo/${producto.id}`} className="relative bg-white overflow-hidden block aspect-square">
+      <Link href={`/catalogo/${producto.id}`} className="relative bg-white overflow-hidden block aspect-square shrink-0">
         {tieneImagenes ? (
           <Image
             src={imagenes[imgIndex]}
             alt={producto.nombre}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
           />
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
@@ -76,36 +76,29 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
       </Link>
 
       {/* ── Info ── */}
-      <div className="flex flex-col flex-1 p-4 gap-3">
-        <div className="flex items-center justify-between">
-          <span className="text-[11px] font-medium text-[var(--color-secondary)] uppercase tracking-wider">
-            {producto.categoria}
-          </span>
-          {producto.marca && (
-            <span className="text-[11px] text-[var(--color-text-light)] truncate max-w-[120px]">
-              {producto.marca}
-            </span>
-          )}
-        </div>
+      <div className="flex flex-col flex-1 p-4 gap-2">
+        <span className="text-[11px] font-semibold text-[var(--color-secondary)] uppercase tracking-wider">
+          {producto.categoria}
+        </span>
 
-        <h3 className="font-bold text-[var(--color-text)] text-base leading-snug line-clamp-2">
+        <h3 className="font-bold text-[var(--color-text)] text-sm leading-snug line-clamp-2 min-h-[2.6rem]">
           {producto.nombre}
         </h3>
 
-        <p className="text-[var(--color-text-light)] text-sm leading-relaxed line-clamp-2 flex-1">
+        <p className="text-[var(--color-text-light)] text-xs leading-relaxed line-clamp-2 flex-1">
           {producto.descripcion}
         </p>
 
-        <div className="flex items-center justify-between pt-2 border-t border-[var(--color-border)]">
+        <div className="flex items-center justify-between pt-3 mt-auto border-t border-[var(--color-border)]">
           <div>
-            <p className="text-[11px] text-[var(--color-text-light)]">Envío gratis</p>
-            <p className="text-xl font-bold text-[var(--color-primary)]">
+            <p className="text-[10px] text-[var(--color-text-light)] mb-0.5">Precio con envío</p>
+            <p className="text-lg font-bold text-[var(--color-primary)] leading-none">
               {formatearPrecio(producto.precio)}
             </p>
           </div>
           <motion.button
             onClick={handleAgregar}
-            className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-300 cursor-pointer min-w-[100px] ${
+            className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-300 cursor-pointer min-w-[90px] ${
               agregado
                 ? "bg-green-500 text-white"
                 : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)]"

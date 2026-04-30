@@ -304,4 +304,36 @@ export const productos: Producto[] = [
     activo: true,
     destacado: false,
   },
+  {
+    id: "alisflus-vitamina-c-120g",
+    nombre: "Alisflus Vitamina C - Polvo de Alta Absorción 120g",
+    descripcion:
+      "Vitamina C en polvo de alta biodisponibilidad. Potente antioxidante que refuerza el sistema inmunológico, estimula la producción de colágeno para la salud de la piel, cabello y articulaciones, y combate el estrés oxidativo. Fácil de disolver en agua o jugos. Apto para toda la familia. 120g por envase. Precio incluye flete.",
+    precio: 47900,
+    categoria: "Suplementos",
+    imagen: "/productos/aliflus-vita-c-120g/aliflus-vita-c-120g-1.png",
+    imagenes: [
+      "/productos/aliflus-vita-c-120g/aliflus-vita-c-120g-1.png",
+    ],
+    contenido: "120g",
+    marca: "Alisflus",
+    activo: true,
+    destacado: false,
+  },
+  {
+    id: "sinart-zinc-magnesio-curcuma",
+    nombre: "Sinart - Bebida de Cúrcuma, Zinc y Magnesio 500ml",
+    descripcion:
+      "Bebida líquida de Cúrcuma, Zinc, Magnesio y Colágeno Hidrolizado sabor naranja. La cúrcuma actúa como potente antiinflamatorio natural; el zinc fortalece el sistema inmune y la piel; el magnesio apoya la relajación muscular y el descanso; el colágeno hidrolizado contribuye a la salud articular y la firmeza de la piel. 17 porciones por envase. Suplemento dietario, no sustituye una alimentación equilibrada. Precio incluye flete.",
+    precio: 60600,
+    categoria: "Suplementos",
+    imagen: "/productos/sinart-500ml/sinart-magnesiozinc-500ml-1.png",
+    imagenes: [
+      "/productos/sinart-500ml/sinart-magnesiozinc-500ml-1.png",
+    ],
+    contenido: "500ml",
+    marca: "Sanly Laboratorios",
+    activo: true,
+    destacado: false,
+  },
 ];

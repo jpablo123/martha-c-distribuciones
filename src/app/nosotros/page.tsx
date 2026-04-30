@@ -34,17 +34,25 @@ export default function NosotrosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <Image src="/logo.png" alt="Martha C Distribuciones" width={80} height={80} className="mx-auto mb-6 rounded-xl bg-white p-2" />
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              Sobre Nosotros
-            </h1>
-            <p className="text-lg text-green-100 leading-relaxed">
-              Somos una empresa colombiana dedicada a la distribución de suplementos naturales y productos para la salud y el bienestar.
-            </p>
-          </div>
+      <section className="relative overflow-hidden min-h-[420px] md:min-h-[520px] flex items-center">
+        <Image
+          src="/hero/nosotros-hero.png"
+          alt="Martha C Distribuciones — equipo y productos naturales"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-28">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-green-300 mb-5">
+            Martha C Distribuciones
+          </p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
+            Sobre<br />nosotros
+          </h1>
+          <p className="text-lg text-white/75 leading-relaxed max-w-[48ch]">
+            Empresa colombiana dedicada a la distribución de suplementos naturales y productos para la salud y el bienestar.
+          </p>
         </div>
       </section>
 

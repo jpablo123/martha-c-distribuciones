@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import ProductoCard from "@/components/ProductoCard";
 import { productos, categorias } from "@/data/productos";
 import HeroSection from "@/components/home/HeroSection";
@@ -53,47 +54,13 @@ const beneficios = [
   },
 ];
 
-function iconoCategoria(cat: string) {
-  const cls = "w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors";
-  switch (cat) {
-    case "Colágeno":
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cls}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
-        </svg>
-      );
-    case "Suplementos":
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cls}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-        </svg>
-      );
-    case "Naturales":
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cls}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-        </svg>
-      );
-    case "Bienestar":
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cls}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-        </svg>
-      );
-    case "Deportes":
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cls}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-        </svg>
-      );
-    default:
-      return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cls}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
-        </svg>
-      );
-  }
-}
+const imagenCategoria: Record<string, string> = {
+  "Colágeno": "/categorias/cat-colageno.png",
+  "Suplementos": "/categorias/cat-suplementos.png",
+  "Naturales": "/categorias/cat-naturales.png",
+  "Bienestar": "/categorias/cat-bienestar.png",
+  "Deportes": "/categorias/cat-deportes.png",
+};
 
 export default function HomePage() {
   const productosDestacados = productos.filter((p) => p.activo && p.destacado);
@@ -141,14 +108,25 @@ export default function HomePage() {
               <AnimateOnScroll key={cat} delay={i * 80}>
                 <Link
                   href={`/catalogo?categoria=${encodeURIComponent(cat)}`}
-                  className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:-translate-y-1 hover:scale-[1.02] group flex flex-col items-center"
+                  className="relative overflow-hidden rounded-2xl group block aspect-[3/4]"
                 >
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-green-50 group-hover:bg-[var(--color-primary)] transition-colors flex items-center justify-center">
-                    {iconoCategoria(cat)}
+                  <Image
+                    src={imagenCategoria[cat]}
+                    alt={cat}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="font-bold text-white text-base leading-tight">{cat}</h3>
+                    <span className="text-white/60 text-xs mt-1 flex items-center gap-1">
+                      Ver productos
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </span>
                   </div>
-                  <h3 className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
-                    {cat}
-                  </h3>
                 </Link>
               </AnimateOnScroll>
             ))}
@@ -183,7 +161,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {productosDestacados.map((producto, i) => (
-              <AnimateOnScroll key={producto.id} delay={i * 100}>
+              <AnimateOnScroll key={producto.id} delay={i * 100} className="h-full">
                 <ProductoCard producto={producto} />
               </AnimateOnScroll>
             ))}

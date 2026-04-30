@@ -102,36 +102,22 @@ export default function HeroSection() {
           animate="visible"
           className="relative hidden lg:flex items-center justify-center h-full min-h-[500px]"
         >
-          {/* Ambient blob */}
-          <div
-            className="absolute w-[520px] h-[520px] rounded-full"
-            style={{
-              background: "radial-gradient(circle at 40% 50%, #d4ede0 0%, #e8f4ed 45%, transparent 70%)",
-            }}
-          />
-
-          {/* Main product card */}
+          {/* Hero botanical image */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 bg-white rounded-2xl shadow-[0_8px_40px_rgba(45,90,61,0.12)] p-6 w-64"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.0, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full h-[600px] rounded-3xl overflow-hidden"
           >
-            <div className="w-full aspect-square rounded-xl bg-[#f0f8f3] mb-4 overflow-hidden relative">
-              <Image
-                src="/productos/colagyn-10/colagyn-10-1.png"
-                alt="Colagyn 10"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <p className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-1">Más vendido</p>
-            <p className="font-bold text-[var(--color-text)] mb-1">Colagyn 10</p>
-            <p className="text-sm text-[var(--color-text-light)] mb-3">Colágeno hidrolizado premium</p>
-            <p className="text-xl font-bold text-[var(--color-text)]">
-              $89.900 <span className="text-sm font-normal text-[var(--color-text-light)]">COP</span>
-            </p>
+            <Image
+              src="/hero/hero-botanico.png"
+              alt="Suplementos naturales Martha C Distribuciones"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            {/* Soft left fade to blend with page bg */}
+            <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[var(--color-bg)] to-transparent pointer-events-none" />
           </motion.div>
 
           {/* Chip — INVIMA */}
@@ -139,7 +125,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-[18%] right-[4%] z-20 bg-white rounded-xl px-4 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center gap-2.5 border border-[var(--color-border)]"
+            className="absolute top-[14%] right-[6%] z-20 bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.10)] flex items-center gap-2.5 border border-white"
           >
             <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-[var(--color-primary)]">
@@ -152,12 +138,12 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Chip — Envío gratis */}
+          {/* Chip — Envío a Colombia */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-[22%] left-[2%] z-20 bg-[var(--color-primary)] rounded-xl px-4 py-3 shadow-[0_4px_20px_rgba(45,90,61,0.3)] flex items-center gap-2.5"
+            className="absolute bottom-[20%] left-[6%] z-20 bg-[var(--color-primary)] rounded-xl px-4 py-3 shadow-[0_4px_24px_rgba(45,90,61,0.35)] flex items-center gap-2.5"
           >
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-white">
@@ -165,20 +151,20 @@ export default function HeroSection() {
               </svg>
             </div>
             <div>
-              <p className="text-xs font-bold text-white leading-none">Envío gratis</p>
-              <p className="text-[10px] text-white/70 mt-0.5">A toda Colombia</p>
+              <p className="text-xs font-bold text-white leading-none">Envío a toda</p>
+              <p className="text-[10px] text-white/70 mt-0.5">Colombia</p>
             </div>
           </motion.div>
 
-          {/* Chip — Nequi */}
+          {/* Chip — Pago seguro */}
           <motion.div
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-[42%] right-[0%] z-20 bg-white rounded-xl px-3 py-2.5 shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-[var(--color-border)]"
+            className="absolute top-[44%] right-[3%] z-20 bg-white/90 backdrop-blur-sm rounded-xl px-3 py-2.5 shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-white"
           >
-            <p className="text-xs font-bold text-[var(--color-text)]">Pago Nequi</p>
-            <p className="text-[10px] text-[var(--color-text-light)]">Fácil y seguro</p>
+            <p className="text-xs font-bold text-[var(--color-text)]">Pago seguro</p>
+            <p className="text-[10px] text-[var(--color-text-light)]">Nequi · Bancolombia</p>
           </motion.div>
         </motion.div>
 
