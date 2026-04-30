@@ -196,18 +196,42 @@ export default function ProductoDetalle({ producto }: { producto: Producto }) {
             </Link>
           </div>
 
-          {/* Banner Nequi */}
-          <div className="bg-purple-50 border border-purple-200 rounded-xl p-4 flex gap-3 items-start">
-            <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-                <path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
-              </svg>
+          {/* Métodos de pago */}
+          <div className="rounded-xl border border-[var(--color-border)] overflow-hidden">
+            <div className="bg-[var(--color-bg)] px-4 py-2.5 border-b border-[var(--color-border)]">
+              <p className="text-xs font-bold text-[var(--color-text)] uppercase tracking-wider">Métodos de pago</p>
             </div>
-            <div>
-              <p className="text-sm font-bold text-purple-900">Pago fácil por Nequi</p>
-              <p className="text-sm text-purple-700 mt-0.5">
-                Consigna al número <span className="font-semibold">321 880 4374</span> y envíanos el comprobante por WhatsApp. Confirmamos el envío de inmediato.
-              </p>
+            <div className="divide-y divide-[var(--color-border)]">
+              {/* Nequi */}
+              <div className="p-4 flex gap-3 items-start">
+                <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+                    <path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-[var(--color-text)]">Nequi</p>
+                  <p className="text-sm text-[var(--color-text-light)] mt-0.5">
+                    Consigna al <span className="font-semibold text-[var(--color-text)]">321 880 4374</span> y envíanos el comprobante por WhatsApp.
+                  </p>
+                </div>
+              </div>
+              {/* Bancolombia */}
+              <div className="p-4 flex gap-3 items-start">
+                <div className="w-8 h-8 rounded-full bg-[#FFCD00] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
+                    <rect width="24" height="24" rx="2" fill="#FFCD00"/>
+                    <path d="M4 12h16M4 8h10M4 16h10" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-[var(--color-text)]">Bancolombia · Cuenta de Ahorros</p>
+                  <p className="text-sm text-[var(--color-text-light)] mt-0.5">
+                    Titular: <span className="font-semibold text-[var(--color-text)]">Martha Moscoso</span> · Cuenta <span className="font-mono font-semibold text-[var(--color-text)]">205-709192-54</span>
+                  </p>
+                  <p className="text-xs text-[var(--color-text-light)] mt-1">Envíanos el comprobante por WhatsApp para confirmar tu envío.</p>
+                </div>
+              </div>
             </div>
           </div>
 
